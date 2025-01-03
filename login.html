@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pranaayu - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/login.css">
+    <script>
+        // Function to check if all fields are filled
+        function checkFields() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const loginButton = document.getElementById("loginBtn");
+            // Enable the button if both fields are filled
+            if (username && password) {
+                loginButton.disabled = false;
+            } else {
+                loginButton.disabled = true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h1>Pranaayu</h1>
+            <p>We Trust Your Priority</p>
+            <div class="feature">
+                <div class="icon">
+                    <p style="font-size: 48px;">🔒</p>
+                </div>
+                <div class="text">
+                    <h2>Secure Access</h2>
+                    <p>Access your account securely with our token-based authentication.</p>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <form action="#" method="post">
+                <h2>Login</h2>
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required oninput="checkFields()">
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required oninput="checkFields()">
+                </div>
+                <button type="button" class="btn" id="loginBtn" onclick="window.open('userdashboard.html')" disabled>Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

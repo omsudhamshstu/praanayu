@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Login</title>
+    <link rel="stylesheet" href="assets/styles/doctorlogin.css">
+    <script src="assets/script/doctorlogin.js" ></script>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h1>Pranaayu Doctor Login</h1>
+            <p>Your trusted partner in health care.</p>
+            <div class="feature">
+                <div class="icon">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <div class="text">
+                    <h2>Secure Access</h2>
+                    <p>Log in to manage your patients efficiently with enhanced security.</p>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <form action="#" method="post">
+                <h2>Doctor Login</h2>
+                <div class="input-group">
+                    <label for="doctorId">Doctor ID</label>
+                    <input type="text" id="doctorId" name="doctorId" required placeholder="Enter your ID">
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter your password">
+                </div>
+                <div class="input-group">
+                    <label for="authCode">Authentication Code</label>
+                    <input type="text" id="authCode" name="authCode" required placeholder="Enter OTP or security code">
+                </div>
+                <button class="btn" onClick="window.open('doctordashboard.html')">Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

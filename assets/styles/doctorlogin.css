@@ -1,0 +1,131 @@
+/* doctorlogin.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    background-color: hsl(210, 36%, 96%);
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 900px;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px hsl(210, 22%, 85%);
+}
+
+.left {
+    background-color: hsl(210, 78%, 56%);
+    color: white;
+    padding: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.left h1 {
+    font-size: 2.5em;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.left p {
+    font-size: 1.2em;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.icon img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.text h2 {
+    font-size: 1.5em;
+    margin: 0;
+    font-weight: 600;
+}
+
+.text p {
+    font-size: 0.9em;
+    margin: 5px 0 0;
+    font-weight: 300;
+}
+
+.right {
+    background-color: white;
+    padding: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+form h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: hsl(210, 29%, 20%);
+}
+
+.input-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+label {
+    font-size: 1em;
+    color: hsl(210, 22%, 35%);
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 400;
+}
+
+input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid hsl(210, 22%, 85%);
+    border-radius: 5px;
+    font-size: 1em;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: hsl(210, 78%, 56%);
+    box-shadow: 0 0 5px hsl(210, 78%, 70%);
+}
+
+button {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: hsl(210, 78%, 56%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: hsl(210, 78%, 46%);
+    transform: scale(1.05);
+}

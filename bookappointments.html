@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <link rel="stylesheet" href="assets/styles/bookappointments.css">
+    <form action="submit_appointment.php" method="POST">
+    <script src="assets/script/bookappointments.js" ></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">User Dashboard</div>
+        <nav>
+            <ul>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="#slots">Slots</a></li>
+                <li><a href="#settings">Settings</a></li>
+                <li><a href="#logout">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Centered Search Bar -->
+    <div class="search-bar-container">
+        <div class="search-bar">
+            <input type="text" placeholder="Search for hospitals, doctors...">
+            <button>Search</button>
+        </div>
+    </div>
+
+    <!-- Appointment Booking Form -->
+    <div class="appointment-form">
+        <h2>Book an Appointment</h2>
+        <form action="submit_appointment.php" method="POST">
+            <!-- Hospital Selection -->
+            <label for="hospital">Select Hospital:</label>
+            <select id="hospital" name="hospital" required onchange="loadDoctors()">
+                <option value="" disabled selected>--Select Hospital--</option>
+                <option value="apollo_hospital">Apollo Hospital, Hyderabad</option>
+                <option value="care_hospital">Care Hospital, Hyderabad</option>
+                <option value="yashoda_hospital">Yashoda Hospital, Hyderabad</option>
+                <option value="continental_hospital">Continental Hospital, Hyderabad</option>
+                <option value="kims_hospital">KIMS Hospital, Hyderabad</option>
+            </select>
+
+            <!-- Doctor Selection (This will be populated dynamically) -->
+            <label for="doctor">Select Doctor:</label>
+            <select id="doctor" name="doctor" required>
+                <option value="" disabled selected>--Select Doctor--</option>
+            </select>
+
+            <!-- Slot Timing Selection -->
+            <label for="slot">Select Slot:</label>
+            <select id="slot" name="slot" required>
+                <option value="" disabled selected>--Select Slot--</option>
+                <option value="9:30 AM">9:30 AM</option>
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="10:30 AM">10:30 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="2:00 PM">2:00 PM</option>
+                <option value="3:30 PM">3:30 PM</option>
+            </select>
+
+            <!-- Token Number Display -->
+            <div id="token-number" class="token-number">
+                <!-- Token number will be displayed here -->
+            </div>
+
+            <!-- Payment -->
+            <div class="payment">
+                <h3>Payment</h3>
+                <label for="payment-method">Select Payment Method:</label>
+                <select id="payment-method" name="payment_method" required>
+                    <option value="" disabled selected>--Select Payment Method--</option>
+                    <option value="credit_card">Credit Card</option>
+                    <option value="debit_card">Debit Card</option>
+                    <option value="net_banking">Net Banking</option>
+                    <option value="upi">UPI</option>
+                </select>
+                <button type="submit">Confirm Appointment</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Sample data for doctors in each hospital with specializations
+        const hospitalDoctors = {
+            "apollo_hospital": [
+                { name: "Dr. Pradeep Reddy", specialization: "Cardiologist" },
+                { name: "Dr. Neelam V Ramana Reddy", specialization: "Orthopedist" }
+            ],
+            "care_hospital": [
+                { name: "Dr. Vipin Goel", specialization: "Neurologist" },
+                { name: "Dr. Jyothsna G", specialization: "Gynaecologist" }
+            ],
+            "yashoda_hospital": [
+                { name: "Dr. Anurag Mishra", specialization: "Dermatologist" },
+                { name: "Dr. Vipin Goel", specialization: "Pediatrician" }
+            ],
+            // Add more hospitals and their doctors here
+        };
+
+        // Function to load doctors based on selected hospital
+        function loadDoctors() {
+            const hospitalSelect = document.getElementById('hospital');
+            const doctorSelect = document.getElementById('doctor');
+            const selectedHospital = hospitalSelect.value;
+
+            // Clear the doctor dropdown
+            doctorSelect.innerHTML = '<option value="" disabled selected>--Select Doctor--</option>';
+
+            // If hospital is selected, populate the doctor dropdown
+            if (selectedHospital && hospitalDoctors[selectedHospital]) {
+                hospitalDoctors[selectedHospital].forEach(doctor => {
+                    const option = document.createElement('option');
+                    option.value = doctor.name;
+                    option.textContent = `${doctor.name} - ${doctor.specialization}`;
+                    doctorSelect.appendChild(option);
+                });
+            }
+        }
+    </script>
+
+    <script src="assets/js/appointment.js"></script>
+</body>
+</html>

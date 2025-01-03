@@ -1,0 +1,169 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1002%26quot%3b)' fill='none'%3e%3cpath d='M-132.8 187.73C20.52 190.84 138.4 388.97 444.56 394.93 750.73 400.89 869.09 593.43 1021.93 596.29' stroke='rgba(0%2c 209%2c 255%2c 0.58)' stroke-width='2'%3e%3c/path%3e%3cpath d='M-280.81 360.75C-102.19 358.09 53.61 141.29 399.57 142.35 745.54 143.41 874.38 590.46 1079.96 612.59' stroke='rgba(0%2c 209%2c 255%2c 0.58)' stroke-width='2'%3e%3c/path%3e%3cpath d='M-174.93 70.34C13.53 71.2 254.93 212.89 562.44 227.14 869.94 241.39 802.05 578.79 931.12 611.49' stroke='rgba(0%2c 209%2c 255%2c 0.58)' stroke-width='2'%3e%3c/path%3e%3cpath d='M-189.79 231.04C-41.81 233.39 74.97 410.33 372.62 415.84 670.26 421.35 785.31 618.67 935.02 621.88' stroke='rgba(0%2c 209%2c 255%2c 0.58)' stroke-width='2'%3e%3c/path%3e%3cpath d='M-101.92 154.31C18.04 154.5 135.44 224.31 372.8 224.31 610.16 224.31 588.22 145.12 847.52 154.31 1106.82 163.5 1156.84 602.45 1322.24 643.44' stroke='rgba(0%2c 209%2c 255%2c 0.58)' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1002'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    color: #fff;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.navbar .search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar input[type="text"] {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+    margin-right: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar button {
+    padding: 0.5rem 1rem;
+    background-color: #0056b3;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Centered Search Bar */
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
+    width: 80%;
+    max-width: 600px;
+    font-size: 24px;
+    font-family: 'poppins', sans-serif;
+}
+
+.search-bar input {
+    width: 80%;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #45a049;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: hsl(197, 87%, 21%);
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 2rem;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    width: calc(33.33% - 1rem);
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.card button {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      width: calc(50% - 1rem);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .card {
+      width: 100%;
+    }
+  }

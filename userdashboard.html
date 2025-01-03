@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="assets/styles/userdashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">User Dashboard</div>
+        <nav>
+            <ul>
+                <li><a href="userprofile.html">Profile</a></li>
+                <li><a href="#slots">Slots</a></li>
+                <li><a href="#settings">Settings</a></li>
+                <li><a href="#logout">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Centered Search Bar -->
+    <div class="search-bar-container">
+        <div class="search-bar">
+            <input type="text" placeholder="Search for hospitals, doctors...">
+            <button>Search</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="card">
+            <h3>Appointments</h3>
+            <p>Schedule or manage your appointments.</p>
+            <button onClick="window.open('bookappointments.html', '_blank')">Book an Appointment</button>
+        </div>
+
+        <div class="card">
+            <h3>Recent Appointments</h3>
+            <p>Check your recent appointment history.</p>
+            <button>View History</button>
+        </div>
+
+        <div class="card">
+            <h3>Nearest Hospitals</h3>
+            <p>Find hospitals close to your location.</p>
+            <button>Find Hospitals</button>
+        </div>
+
+        <div class="card">
+            <h3>Health Tips</h3>
+            <p>Stay updated with the latest health advice.</p>
+            <button>View Tips</button>
+        </div>
+
+        <div class="card">
+            <h3>Medical Records</h3>
+            <p>Access and manage your medical records.</p>
+            <button>View Records</button>
+        </div>
+
+        <div class="card">
+            <h3>Feedback</h3>
+            <p>Share your feedback to help us improve.</p>
+            <button>Give Feedback</button>
+        </div>
+    </div>
+
+</body>
+</html>

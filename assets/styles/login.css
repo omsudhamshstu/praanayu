@@ -1,0 +1,141 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: hsl(210, 36%, 96%);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1003%26quot%3b)' fill='none'%3e%3cpath d='M579.56 574.88C726.79 568.77 844.67 324.85 1113.22 324.66 1381.77 324.47 1509.64 452.55 1646.88 453.46' stroke='rgba(0%2c 255%2c 46%2c 0.58)' stroke-width='2'%3e%3c/path%3e%3cpath d='M399.68 654.05C560.15 653.49 702.35 535.34 1029.82 531.91 1357.29 528.48 1491.85 300.5 1659.96 296.71' stroke='rgba(0%2c 255%2c 46%2c 0.58)' stroke-width='2'%3e%3c/path%3e%3cpath d='M751.06 628.18C916.89 578.31 966.09 110.5 1206.56 106.33 1447.02 102.16 1536.47 313.97 1662.05 319.13' stroke='rgba(0%2c 255%2c 46%2c 0.58)' stroke-width='2'%3e%3c/path%3e%3cpath d='M429.49 644.75C556.71 629.88 630.05 348.42 845.97 346.36 1061.89 344.3 1054.21 416.36 1262.45 416.36 1470.69 416.36 1573.35 346.6 1678.93 346.36' stroke='rgba(0%2c 255%2c 46%2c 0.58)' stroke-width='2'%3e%3c/path%3e%3cpath d='M209.53 562.74C420.81 534.21 533.8 48.93 886.97 44.77 1240.14 40.61 1392.52 161.93 1564.41 162.37' stroke='rgba(0%2c 255%2c 46%2c 0.58)' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1003'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px hsla(0, 0%, 0%, 0.1);
+    overflow: hidden;
+}
+
+.left {
+    background-color: hsl(144, 50%, 50%);
+    color: white;
+    padding: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.left h1 {
+    font-size: 2.8em;
+    margin: 0 0 10px;
+    font-weight: 600;
+}
+
+.left p {
+    font-size: 1.1em;
+    margin: 0 0 20px;
+    font-weight: 300;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.icon img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.text h2 {
+    font-size: 1.5em;
+    margin: 0;
+    font-weight: 600;
+}
+
+.text p {
+    font-size: 0.9em;
+    margin: 5px 0 0;
+    font-weight: 300;
+}
+
+.right {
+    padding: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+form h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: hsl(0, 0%, 20%);
+}
+
+.input-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+label {
+    font-size: 1em;
+    color: hsl(0, 0%, 40%);
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 400;
+}
+
+input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 5px;
+    font-size: 1em;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: hsl(144, 50%, 50%);
+    box-shadow: 0 0 5px hsla(144, 50%, 50%, 0.5);
+}
+
+button {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: hsl(144, 50%, 50%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: hsl(144, 50%, 40%);
+    transform: translateY(-3px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.right form h2:hover {
+    color: hsl(144, 50%, 50%);
+    transition: color 0.3s ease;
+}
