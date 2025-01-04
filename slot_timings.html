@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>MSP Hospitals - Slots</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 0 15px;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Layout styling */
+        .main-container {
+            display: flex;
+            margin: 20px;
+            gap: 20px;
+        }
+
+        /* Slots section styling */
+        .slots-container {
+            flex: 1;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            align-content: center;
+            padding-right: 0px;
+            padding-left: 80px;
+        }
+        .slots-container h3 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .slot-button {
+            display: inline-block;
+            width: calc(30% - 10px);
+            margin: 5px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .slot-button:hover {
+            background-color: #0056b3;
+        }
+        .slot-button.disabled {
+            background-color: #cccccc;
+            color: black;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <h2>MSP Hospitals</h2>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-container">
+        <!-- Slots Section -->
+        <div class="slots-container">
+            <h3>Available Slots for <span id="doctorName"></span></h3>
+            <button onclick="redirectToPayment('9:30 AM - 10:00 AM')" class="slot-button">9:30 AM - 10:00 AM</button>
+            <button onclick="redirectToPayment('10:00 AM - 10:30 AM')" class="slot-button">10:00 AM - 10:30 AM</button>
+            <button onclick="redirectToPayment('10:30 AM - 11:00 AM')" class="slot-button">10:30 AM - 11:00 AM</button>
+            <button onclick="redirectToPayment('11:00 AM - 11:30 AM')" class="slot-button">11:00 AM - 11:30 AM</button>
+            <button onclick="redirectToPayment('11:30 AM - 12:00 PM')" class="slot-button">11:30 AM - 12:00 PM</button>
+            <button onclick="redirectToPayment('12:00 PM - 12:30 PM')" class="slot-button">12:00 PM - 12:30 PM</button>
+            <button class="slot-button disabled">Lunch Break (12:30 PM - 2:00 PM)</button>
+            <button onclick="redirectToPayment('2:00 PM - 2:30 PM')" class="slot-button">2:00 PM - 2:30 PM</button>
+            <button onclick="redirectToPayment('2:30 PM - 3:00 PM')" class="slot-button">2:30 PM - 3:00 PM</button>
+            <button onclick="redirectToPayment('3:00 PM - 3:30 PM')" class="slot-button">3:00 PM - 3:30 PM</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('doctorName').textContent = localStorage.getItem('selectedDoctor') || "Dr. Smith";
+        function redirectToPayment(slot) {
+            localStorage.setItem('selectedSlot', slot);
+            window.location.href = "payment.html";
+        }
+    </script>
+</body>
+</html>
