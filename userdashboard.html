@@ -42,6 +42,10 @@
             background: #3498db;
             color: #fff;
         }
+        /* Results styling */
+        #results {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -94,13 +98,13 @@
         <div class="card">
             <h3>Nearest Hospitals</h3>
             <p>Find hospitals close to your location.</p>
-            <button>Find Hospitals</button>
+            <button id="findHospitals" onclick="window.location.href='hospitalresults.html'">Find Hospitals</button>
         </div>
 
         <div class="card">
-            <h3>Benifits</h3>
+            <h3>Benefits</h3>
             <p>Search for Specialisations and more!</p>
-            <button onclick="window.open('benifits.html')" >View Specialisations</button>
+            <button onclick="window.open('benefits.html')">View Specialisations</button>
         </div>
 
         <div class="card">

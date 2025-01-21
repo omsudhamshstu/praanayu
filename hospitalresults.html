@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearest Hospitals</title>
+    
+    <!-- Add Poppins Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Add Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Inline Styles -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        #map {
+            height: 60vh;
+            width: 100%;
+        }
+    </style>
+
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AlzaSyvbOG0kWx99Cg8PfamCdrM_08Uczt41hPH&libraries=places"></script>
+    <!-- <script src="https://maps.gomaps.pro/maps/api/directions/json?destination=<string>&origin=<string>&key=AlzaSyvbOG0kWx99Cg8PfamCdrM_08Uczt41hPH"></script> -->
+</head>
+<body>
+    <div class="container py-4">
+        <h1 class="text-center mb-4">Nearest Hospitals</h1>
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <input id="search" type="text" class="form-control" placeholder="Enter a location...">
+            </div>
+            <div class="col-md-2">
+                <button id="search-btn" class="btn btn-primary w-100">Search</button>
+            </div>
+            <div class="col-md-2">
+                <button id="location-btnn" class="btn btn-success w-100">Detect My Location</button>
+            </div>
+        </div>
+        <div id="map" class="mb-4"></div>
+        <div class="hospital-list">
+            <h3>Hospital List</h3>
+            <ul id="hospital-list" class="list-group"></ul>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script>
+        let map, service, infowindow;
+        const hospitalList = document.getElementById('hospital-list');
+
+        // Initialize the map
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 0, lng: 0 },
+                zoom: 14,
+            });
+
+            infowindow = new google.maps.InfoWindow();
+
+            // Add search button functionality
+            document.getElementById('search-btn').addEventListener('click', () => {
+                const query = document.getElementById('search').value;
+                if (query) {
+                    const geocoder = new google.maps.Geocoder();
+                    geocoder.geocode({ address: query }, (results, status) => {
+                        if (status === 'OK') {
+                            const location = results[0].geometry.location;
+                            map.setCenter(location);
+                            fetchNearestHospitals(location);
+                        } else {
+                            alert('Location not found. Please try again.');
+                        }
+                    });
+                }
+            });
+
+            // Add location detection button functionality
+            document.getElementById('location-btnn').addEventListener('click', () => {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const userLocation = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude,
+                        };
+                        map.setCenter(userLocation);
+                        new google.maps.Marker({
+                            position: userLocation,
+                            map: map,
+                            title: 'Your Location',
+                        });
+                        fetchNearestHospitals(userLocation);
+                    },
+                    () => {
+                        alert('Unable to detect location. Please enable location services.');
+                    }
+                );
+            });
+        }
+
+        // Fetch nearest hospitals
+        function fetchNearestHospitals(location) {
+            const request = {
+                location: new google.maps.LatLng(location.lat, location.lng),
+                radius: 5000,
+                type: ['hospital'],
+            };
+
+            service = new google.maps.places.PlacesService(map);
+            service.nearbySearch(request, (results, status) => {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    hospitalList.innerHTML = '';
+                    results.forEach((hospital) => {
+                        const marker = new google.maps.Marker({
+                            position: hospital.geometry.location,
+                            map: map,
+                            title: hospital.name,
+                        });
+
+                        const listItem = document.createElement('li');
+                        listItem.className = 'list-group-item';
+                        listItem.textContent = `${hospital.name} - ${hospital.vicinity}`;
+                        hospitalList.appendChild(listItem);
+
+                        // Add click listener to marker
+                        marker.addListener('click', () => {
+                            infowindow.setContent(`<strong>${hospital.name}</strong><br>${hospital.vicinity}`);
+                            infowindow.open(map, marker);
+                        });
+                    });
+                } else {
+                    alert('No hospitals found nearby.');
+                }
+            });
+        }
+
+        // Initialize map on page load
+        window.onload = initMap;
+    </script>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
